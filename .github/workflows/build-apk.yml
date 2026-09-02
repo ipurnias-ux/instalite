@@ -11,8 +11,10 @@ jobs:
           java-version: '17'
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.0'
-      - run: flutter create . --platforms=android
+          flutter-version: '3.35.0'
+          channel: 'stable'
+      - run: mkdir -p assets assets/images
+      - run: flutter create. --platforms=android --project-name instalite
       - run: flutter pub get
       - run: flutter build apk --release
       - uses: actions/upload-artifact@v4
