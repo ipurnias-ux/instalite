@@ -13,10 +13,11 @@ jobs:
         with:
           flutter-version: '3.22.3'
           channel: 'stable'
-      - run: |
-          flutter create --platforms=android --project-name instalite temp
-          cp -r temp/android./
-          rm -rf temp
+      - name: Make Android folder
+        run: |
+          flutter create --platforms=android --project-name instalite temp_build
+          cp -r temp_build/android./
+          rm -rf temp_build
       - run: flutter pub get
       - run: flutter build apk --release
       - uses: actions/upload-artifact@v4
